@@ -19,5 +19,6 @@ namespace CoverLetterTextMaker.Interfaces
         public List<string> Paragraphs { get; set; } = new List<string>();
         public string? JobSpecificQualificationsText { get; set;  }
         public string? SignOff { get; set;  }
+        public List<List<string>>? Socials { get; set; }
     }
 }

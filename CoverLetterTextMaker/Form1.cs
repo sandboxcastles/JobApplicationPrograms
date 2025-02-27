@@ -9,8 +9,9 @@ namespace CoverLetterTextMaker
         private PersonalInformation? PersonalInfo { get; set; }
         public Form1()
         {
-            InitializeComponent();
             PersonalInfo = GetPersonalInfo();
+            InitializeComponent();
+            AddSocialTextBoxes();
         }
 
         private void generateTextBtn_Click(object sender, EventArgs e)
@@ -172,6 +173,61 @@ namespace CoverLetterTextMaker
                 personalInfoText
             };
             return string.Join("\r\n\r\n", bodySections);
+        }
+
+        private void AddSocialTextBoxes()
+        {
+            var socials = this.PersonalInfo?.Socials;
+            if (socials != null)
+            {
+                int socialsCount = socials.Count;
+                if (socialsCount > 0)
+                {
+                    TextBox[] textBoxes = new TextBox[socialsCount];
+                    Label[] labels = new Label[socialsCount];
+
+                    for (int i = 0; i < socialsCount; i++)
+                    {
+                        var valueText = socials[i][1];
+                        var label = new Label();
+                        label.Name = $"social_label_{socials[i][0]}";
+                        label.Text = socials[i][0];
+                        label.Width = 75;
+                        label.Top = (i * 30) + 4;
+
+                        string textBoxName = $"social_textbox_{socials[i][0]}";
+                        var textBox = new TextBox();
+                        textBox.Name = textBoxName;
+                        textBox.Text = socials[i][1];
+                        textBox.Width = 250;
+                        textBox.Left = 75;
+                        textBox.Top = i * 30;
+
+                        var copyButton = new Button();
+                        copyButton.Name = $"social_copyButton_{socials[i][0]}";
+                        copyButton.Text = "Copy";
+                        copyButton.Width = 50;
+                        copyButton.Left = 330;
+                        copyButton.Top = i * 30;
+                        copyButton.Click += delegate
+                        {
+                            var tb = (TextBox)Controls.Find(textBoxName, true)[0];
+                            if (string.IsNullOrWhiteSpace(tb.Text))
+                            {
+                                Clipboard.Clear();
+                            }
+                            else
+                            {
+                                Clipboard.SetText(tb.Text);
+                            }
+                        };
+
+                        this.socialsPanel.Controls.Add(label);
+                        this.socialsPanel.Controls.Add(textBox);
+                        this.socialsPanel.Controls.Add(copyButton);
+                    }
+                }
+            }
         }
     }
 }

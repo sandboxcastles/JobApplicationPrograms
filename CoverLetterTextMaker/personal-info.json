@@ -14,5 +14,9 @@
     "I would truly appreciate the opportunity to speak with you about how my skills align with your needs and how {companyName} can support my professional goals as well. Thank you for your time and consideration. I look forward to hearing from you!"
   ],
   "jobSpecificQualificationsText": "Most notably, I have worked with {keywords}.",
-  "signOff": "Thank you,"
-}F
+  "signOff": "Thank you,",
+  "socials": [
+    [ "LinkedIn", "" ],
+    [ "Website", "" ]
+  ]
+}

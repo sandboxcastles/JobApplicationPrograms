@@ -43,6 +43,7 @@
             jobListingLocationTextBox = new TextBox();
             jobSpecificQualificationsLbl = new Label();
             jobSpecificQualificationsTextBox = new TextBox();
+            socialsPanel = new Panel();
             SuspendLayout();
             // 
             // companyNameTextBox
@@ -113,7 +114,8 @@
             generatedTextTextBox.Location = new Point(13, 330);
             generatedTextTextBox.Multiline = true;
             generatedTextTextBox.Name = "generatedTextTextBox";
-            generatedTextTextBox.Size = new Size(517, 421);
+            generatedTextTextBox.ScrollBars = ScrollBars.Vertical;
+            generatedTextTextBox.Size = new Size(517, 393);
             generatedTextTextBox.TabIndex = 7;
             // 
             // copyTextBtn
@@ -171,11 +173,19 @@
             jobSpecificQualificationsTextBox.Size = new Size(517, 23);
             jobSpecificQualificationsTextBox.TabIndex = 12;
             // 
+            // socialsPanel
+            // 
+            socialsPanel.Location = new Point(552, 38);
+            socialsPanel.Name = "socialsPanel";
+            socialsPanel.Size = new Size(414, 335);
+            socialsPanel.TabIndex = 14;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(541, 756);
+            ClientSize = new Size(978, 738);
+            Controls.Add(socialsPanel);
             Controls.Add(jobSpecificQualificationsLbl);
             Controls.Add(jobSpecificQualificationsTextBox);
             Controls.Add(jobListingLocationLbl);
@@ -213,5 +223,6 @@
         private TextBox jobListingLocationTextBox;
         private Label jobSpecificQualificationsLbl;
         private TextBox jobSpecificQualificationsTextBox;
+        private Panel socialsPanel;
     }
 }
